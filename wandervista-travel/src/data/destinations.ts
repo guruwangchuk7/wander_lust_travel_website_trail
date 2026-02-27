@@ -9,10 +9,10 @@ export type Destination = {
 export const destinations: Destination[] = [
   {
     id: 1,
-    name: "Punkha Dzong",
+    name: "Punakha Dzong",
     image: "/punakha-dzong.jpg",
     description:
-      "Punkha Dzong is one of Bhutan's most majestic fortresses and the winter capital of the Drukpa Lineage. It offers stunning architecture, riverside views, and a rich historical experience.",
+      "Punakha Dzong is one of Bhutan's most majestic fortresses and the winter capital of the Drukpa Lineage. It offers stunning architecture, riverside views, and a rich historical experience.",
     attractions: [
       "Punakha Suspension Bridge",
       "Chimi Lhakhang (Fertility Temple)",
@@ -22,7 +22,7 @@ export const destinations: Destination[] = [
   {
     id: 2,
     name: "Paro Taktsang",
-    image: "/paro-taktsang.jpg",
+    image: "/paro-taksang.jpg",
     description:
       "Also known as Tiger’s Nest Monastery, Paro Taktsang clings to a cliff 900 meters above the Paro Valley. It is Bhutan's most iconic pilgrimage site with breathtaking views.",
     attractions: [
@@ -42,5 +42,26 @@ export const destinations: Destination[] = [
       "Coffee shops with mountain views",
       "Nearby hiking trails"
     ]
+  },
+  {
+    id: 4,
+    name: "Thimphu Valley",
+    image: "/thimphu.jpg",
+    description: "The capital city of Bhutan, Thimphu is a unique blend of modern development and ancient traditions, being the only capital in the world without traffic lights.",
+    attractions: ["Buddha Dordenma", "Memorial Chorten", "Tashichho Dzong"]
+  },
+  {
+    id: 5,
+    name: "Phobjikha Valley",
+    image: "/monk.jpg",
+    description: "A vast U-shaped glacial valley, famous as the winter home of the rare black-necked cranes that migrate from the Tibetan Plateau.",
+    attractions: ["Gangtey Monastery", "Crane Information Centre", "Nature Trails"]
+  },
+  {
+    id: 6,
+    name: "Bumthang Valley",
+    image: "/airport.jpg",
+    description: "The spiritual heartland of Bhutan, Bumthang is home to some of the country's oldest and most sacred Buddhist temples and monasteries.",
+    attractions: ["Kurje Lhakhang", "Jambay Lhakhang", "Jakar Dzong"]
   }
 ]

@@ -1,4 +1,71 @@
-/* src/index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Montserrat", sans-serif;
+
+  --color-primary: #003049;
+  --color-accent: #D62828;
+  --color-gold: #FCBF49;
+  --color-soft-white: #FDFCF8;
+  --color-dark-charcoal: #121212;
+
+  --shadow-minimal: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+@layer base {
+  body {
+    @apply font-body bg-white text-[#2D2D2D] antialiased leading-relaxed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight font-bold;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden px-10 py-5 rounded-lg font-bold transition-all duration-500 flex items-center justify-center gap-3 cursor-pointer select-none active:scale-95 bg-primary text-white hover:bg-dark-charcoal hover:shadow-minimal;
+  }
+
+  .btn-accent {
+    @apply relative overflow-hidden px-10 py-5 rounded-lg font-bold transition-all duration-500 flex items-center justify-center gap-3 cursor-pointer select-none active:scale-95 bg-accent text-white hover:bg-black hover:shadow-minimal;
+  }
+
+  .card-premium {
+    @apply bg-white rounded-2xl shadow-minimal hover:shadow-premium transition-all duration-700 border border-gray-100;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+}
+
+/* Custom Scrollbar - Minimalists style */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00304920;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00304940;
+}
