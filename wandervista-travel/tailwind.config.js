@@ -7,13 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0077B6", // Ocean Blue
-        accent: "#F77F00",  // Sunset Orange
-        softWhite: "#F8F9FA",
-        darkCharcoal: "#212529",
+        primary: "#1A1A1D",
+        secondary: "#5A5A5C",
+        accent: "#C2A878",
+        accentDark: "#A38A5C",
+        bgLight: "#FAFAFA",
+        bgAlt: "#F3F1ED",
       },
       fontFamily: {
-        heading: ["Montserrat", "sans-serif"],
+        heading: ["Playfair Display", "serif"],
         body: ["Inter", "sans-serif"],
       },
     },

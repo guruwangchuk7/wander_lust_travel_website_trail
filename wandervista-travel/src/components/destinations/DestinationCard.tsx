@@ -1,6 +1,7 @@
 ﻿import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
-import { MapPin, Star, ArrowUpRight } from "lucide-react"
+import { Star, Heart, MapPin } from "lucide-react"
+import { useState } from "react"
 
 type Props = {
   id: number
@@ -11,49 +12,64 @@ type Props = {
   rating?: number
 }
 
-const DestinationCard = ({ id, name, image, location = "Bhutan", price = "$899", rating = 4.9 }: Props) => {
+const DestinationCard = ({ id, name, image, location = "Bhutan", price = "$120", rating = 4.8 }: Props) => {
   const navigate = useNavigate()
+  const [isFavorite, setIsFavorite] = useState(false)
 
   return (
     <motion.div
-      whileHover={{ y: -8 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       className="group cursor-pointer"
       onClick={() => navigate(`/destinations/${id}`)}
     >
-      <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-minimal transition-all duration-500 group-hover:shadow-premium bg-gray-100">
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
+      <div className="card-minimal relative flex flex-col h-full">
+        {/* Thumbnail Image with Zoom Effect */}
+        <div className="relative aspect-[4/3] overflow-hidden">
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
 
-        {/* Subtle Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 z-10" />
+          {/* Heart Icon for Save/Favorite */}
+          <button
+            onClick={(e) => { e.stopPropagation(); setIsFavorite(!isFavorite); }}
+            className={`absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md shadow-lg ${isFavorite ? 'bg-red-500 text-white' : 'bg-white/90 text-primary hover:scale-110'
+              }`}
+          >
+            <Heart className={`w-5 h-5 ${isFavorite ? 'fill-current' : ''}`} />
+          </button>
 
-        {/* Top Badges */}
-        <div className="absolute top-6 left-6 right-6 flex justify-between items-start z-20">
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 py-1 rounded-full flex items-center space-x-1">
-            <Star className="w-3 h-3 text-gold fill-gold" />
-            <span className="font-bold text-[10px]">{rating}</span>
-          </div>
-          <div className="bg-white text-primary px-3 py-1 rounded-full font-bold text-[10px]">
-            From {price}
-          </div>
+          {/* Gradient Overlay for bottom text legibility */}
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
 
-        {/* Minimalist Info */}
-        <div className="absolute bottom-0 left-0 w-full p-8 z-20">
-          <div className="flex items-center space-x-2 text-white/60 mb-2">
-            <MapPin className="w-3 h-3" />
-            <span className="font-bold uppercase tracking-widest text-[9px]">{location}</span>
+        {/* Card Anatomy: Location, Rating, Price */}
+        {/* Card Anatomy: Location, Rating, Price */}
+        <div className="p-6 md:p-8 flex flex-col flex-1 bg-white">
+          <div className="flex justify-between items-start mb-2">
+            <div className="flex items-center space-x-2 text-accent">
+              <MapPin className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-medium uppercase tracking-[0.2em]">{location}</span>
+            </div>
+            <div className="flex items-center gap-1 shrink-0 bg-bg-light px-2 py-1 rounded-md">
+              <Star className="w-3 h-3 text-accent fill-accent" />
+              <span className="text-xs font-bold text-primary">{rating}</span>
+            </div>
           </div>
 
-          <div className="flex items-end justify-between gap-4">
-            <h3 className="text-2xl text-white font-heading font-bold transition-colors duration-300">
-              {name}
-            </h3>
-            <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-              <ArrowUpRight className="w-5 h-5 text-white" />
+          <h3 className="text-2xl font-heading font-medium text-primary mt-2 mb-4 group-hover:text-accent transition-colors truncate pr-2">
+            {name}
+          </h3>
+
+          <div className="mt-auto flex items-center justify-between pt-6 border-t border-primary/5">
+            <div className="flex flex-col">
+              <span className="text-[10px] text-secondary font-medium uppercase tracking-widest leading-none mb-2">Starting from</span>
+              <span className="text-xl font-heading font-medium text-primary leading-none">
+                {price} <span className="text-xs font-body font-normal text-secondary tracking-normal">/ night</span>
+              </span>
             </div>
           </div>
         </div>

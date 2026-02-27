@@ -29,8 +29,8 @@ const FeaturedDeals = () => {
     return (
         <section className="section-padding px-6 max-w-7xl mx-auto">
             <div className="text-center mb-20 max-w-2xl mx-auto">
-                <span className="text-accent font-bold tracking-[0.3em] uppercase text-xs mb-4 block underline decoration-accent/20 underline-offset-8">Opportunities</span>
-                <h2 className="text-5xl md:text-6xl font-heading tracking-tight leading-tight">
+                <span className="text-accent font-semibold tracking-[0.3em] uppercase text-[10px] mb-6 block">Exclusive Opportunities</span>
+                <h2 className="text-5xl md:text-6xl font-heading tracking-tight leading-tight text-primary">
                     Seasonal <span className="italic font-normal">Exclusivity</span>
                 </h2>
             </div>
@@ -51,25 +51,25 @@ const FeaturedDeals = () => {
                             className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent p-10 flex flex-col justify-end">
-                            <div className="flex space-x-2 mb-6 opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-500">
+                            <div className="flex space-x-2 mb-6 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0 duration-500">
                                 {deal.tags.map(tag => (
-                                    <span key={tag} className="text-[9px] font-bold tracking-widest px-3 py-1.5 rounded-md bg-white/10 text-white backdrop-blur-md border border-white/10 uppercase">
+                                    <span key={tag} className="text-[9px] font-medium tracking-[0.2em] px-4 py-2 rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 uppercase">
                                         {tag}
                                     </span>
                                 ))}
                             </div>
 
-                            <h3 className="text-4xl text-white font-heading font-bold mb-8 max-w-md leading-tight tracking-tight">
+                            <h3 className="text-4xl text-white font-heading font-medium mb-8 max-w-md leading-tight tracking-tight">
                                 {deal.title}
                             </h3>
 
-                            <div className="flex items-center justify-between pt-8 border-t border-white/10">
+                            <div className="flex items-center justify-between pt-8 border-t border-white/20">
                                 <div className="flex items-center space-x-6">
                                     <div className="flex flex-col">
-                                        <span className="text-white/40 text-[10px] line-through font-bold">{deal.originalPrice}</span>
-                                        <span className="text-white text-3xl font-bold leading-none">{deal.dealPrice}</span>
+                                        <span className="text-white/60 text-[10px] line-through font-light tracking-widest">{deal.originalPrice}</span>
+                                        <span className="text-white text-3xl font-heading font-medium leading-none mt-1">{deal.dealPrice}</span>
                                     </div>
-                                    <div className="bg-accent text-white px-3 py-1.5 rounded-md font-bold text-[9px] uppercase tracking-widest shadow-xl">
+                                    <div className="bg-accent text-white px-4 py-1.5 rounded-full font-semibold text-[9px] uppercase tracking-[0.2em] shadow-xl">
                                         {deal.discount}
                                     </div>
                                 </div>

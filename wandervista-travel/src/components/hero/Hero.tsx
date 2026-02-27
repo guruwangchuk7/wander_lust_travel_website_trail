@@ -1,6 +1,6 @@
 ﻿import { useState } from "react"
 import { motion } from "framer-motion"
-import { MapPin, Calendar, ArrowRight } from "lucide-react"
+import { MapPin, Calendar, User, Search, ChevronDown } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 
 const Hero = () => {
@@ -13,93 +13,94 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative h-[100vh] w-full flex items-center justify-center overflow-hidden">
-      {/* Minimalist Visual: Image background instead of busy video for cleaner look */}
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-visible">
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/paro-taksang.jpg"
-          className="w-full h-full object-cover scale-105"
-          alt="Bhutan"
+          src="/hero-bg.jpg"
+          className="w-full h-full object-cover"
+          alt="High-quality travel panorama"
+          onError={(e) => { e.currentTarget.src = "/paro-taksang.jpg" }} // Fallback
         />
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px] z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-black/20 z-20" />
+        <div className="absolute inset-0 bg-black/40 z-10" />
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-30 max-w-5xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center space-x-2 text-white/90 text-[10px] font-bold uppercase tracking-[0.4em] mb-12"
-        >
-          <div className="w-8 h-px bg-accent" />
-          <span>The Kingdom of Bhutan</span>
-          <div className="w-8 h-px bg-accent" />
-        </motion.div>
-
+      {/* Hero Copy */}
+      <div className="relative z-20 max-w-5xl mx-auto px-6 text-center pt-32 pb-48">
         <motion.h1
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="text-white text-6xl md:text-9xl font-heading font-black mb-10 leading-tight tracking-tighter"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="text-white text-5xl md:text-7xl lg:text-8xl font-heading mb-6 leading-[1.1] font-medium"
         >
-          Journey to <br />
-          <span className="italic">Happiness</span>
+          Experience the <br className="hidden md:block" /> Unforgettable
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="text-white/80 text-lg md:text-xl font-medium mb-16 max-w-2xl mx-auto leading-relaxed"
-        >
-          Authentic adventures through the dragon kingdom. Explore sacred valleys, ancient fortresses, and untouched nature.
-        </motion.p>
-
-        {/* Minimalist Search Widget */}
-        <motion.form
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          onSubmit={handleSearch}
-          className="flex flex-col md:flex-row items-stretch gap-0 bg-white shadow-2xl rounded-2xl overflow-hidden max-w-4xl mx-auto border border-gray-100"
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+          className="text-white/80 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed tracking-[0.2em] uppercase"
         >
-          <div className="flex-1 flex items-center px-8 py-6 border-r border-gray-100 group transition-colors hover:bg-gray-50/50">
-            <MapPin className="w-5 h-5 text-accent mr-4" />
+          Curated luxury stays & bespoke adventures in the Dragon Kingdom.
+        </motion.p>
+      </div>
+
+      {/* The Booking Search Card (Glassmorphism) */}
+      <div className="absolute -bottom-16 left-0 w-full z-40 px-6">
+        <motion.form
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          onSubmit={handleSearch}
+          className="max-w-5xl mx-auto glass-panel p-3 lg:p-4 flex flex-col lg:flex-row items-stretch gap-2"
+        >
+          {/* Location Field */}
+          <div className="flex-1 flex flex-col px-6 py-4 bg-white/40 hover:bg-white/60 transition-colors rounded-2xl cursor-text">
+            <label className="flex items-center gap-2 text-[10px] font-bold text-primary uppercase tracking-widest mb-1 opacity-70">
+              <MapPin className="w-3.5 h-3.5 text-accent" />
+              Location
+            </label>
             <input
               type="text"
-              placeholder="Search valleys..."
-              className="bg-transparent text-primary font-bold outline-none placeholder-gray-400 w-full"
+              placeholder="Where to next?"
+              className="bg-transparent text-primary font-medium outline-none placeholder-primary/50 w-full text-lg font-heading"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          <div className="flex-1 flex items-center px-8 py-6 group transition-colors hover:bg-gray-50/50">
-            <Calendar className="w-5 h-5 text-accent mr-4" />
-            <select className="bg-transparent text-primary font-bold outline-none appearance-none w-full cursor-pointer">
-              <option>Any Season</option>
-              <option>Spring</option>
-              <option>Autumn</option>
-            </select>
+
+          {/* Check-in / Check-out */}
+          <div className="flex-1 flex flex-col px-6 py-4 bg-white/40 hover:bg-white/60 transition-colors rounded-2xl cursor-pointer">
+            <label className="flex items-center gap-2 text-[10px] font-bold text-primary uppercase tracking-widest mb-1 opacity-70">
+              <Calendar className="w-3.5 h-3.5 text-accent" />
+              Dates
+            </label>
+            <div className="flex items-center justify-between text-primary font-medium text-lg font-heading mt-1">
+              <span>Select Dates</span>
+              <ChevronDown className="w-4 h-4 text-primary/50" />
+            </div>
           </div>
-          <button className="bg-primary hover:bg-black text-white px-10 py-6 transition-all flex items-center justify-center gap-3 font-bold uppercase tracking-widest text-xs">
-            <span>Explore</span>
-            <ArrowRight className="w-4 h-4" />
+
+          {/* Guests & Rooms */}
+          <div className="flex-1 flex flex-col px-6 py-4 bg-white/40 hover:bg-white/60 transition-colors rounded-2xl cursor-pointer">
+            <label className="flex items-center gap-2 text-[10px] font-bold text-primary uppercase tracking-widest mb-1 opacity-70">
+              <User className="w-3.5 h-3.5 text-accent" />
+              Guests
+            </label>
+            <div className="flex items-center justify-between text-primary font-medium text-lg font-heading mt-1">
+              <span>2 Adults, 1 Room</span>
+              <ChevronDown className="w-4 h-4 text-primary/50" />
+            </div>
+          </div>
+
+          {/* Search CTA */}
+          <button className="btn-primary !rounded-2xl lg:!px-12 !text-sm lg:!w-auto w-full shadow-lg hover:shadow-xl mt-2 lg:mt-0 flex-shrink-0">
+            <Search className="w-4 h-4 mr-2" />
+            Search
           </button>
         </motion.form>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 cursor-pointer text-white/50 hover:text-white transition-colors flex flex-col items-center gap-2"
-        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-      >
-        <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-accent to-transparent" />
-      </motion.div>
     </section>
   )
 }

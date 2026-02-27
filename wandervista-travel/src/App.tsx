@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Layout from "./components/layout/Layout"
 import Home from "./pages/Home"
 import DestinationDetail from "./pages/DestinationDetail"
@@ -10,7 +10,7 @@ import Contact from "./pages/Contact"
 import ScrollToTop from "./components/layout/ScrollToTop"
 
 const App = () => (
-  <Router>
+  <>
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -23,7 +23,7 @@ const App = () => (
         <Route path="booking" element={<Booking />} />
       </Route>
     </Routes>
-  </Router>
+  </>
 )
 
 export default App

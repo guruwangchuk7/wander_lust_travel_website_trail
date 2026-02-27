@@ -30,9 +30,9 @@ const Testimonials = () => {
         <section className="section-padding px-6 bg-white">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-24 max-w-4xl mx-auto">
-                    <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-8 block">Voice of the valley</span>
-                    <h2 className="text-5xl md:text-7xl font-heading tracking-tighter leading-none">
-                        The World’s <span className="italic font-normal">Seekers.</span>
+                    <span className="text-primary font-semibold tracking-[0.4em] uppercase text-[10px] mb-8 block">Voice of the Valley</span>
+                    <h2 className="text-5xl md:text-7xl font-heading font-medium tracking-tight leading-none text-primary">
+                        The World’s <span className="italic font-normal">Seekers</span>
                     </h2>
                 </div>
 
@@ -45,17 +45,17 @@ const Testimonials = () => {
                             transition={{ delay: idx * 0.1 }}
                             className="flex flex-col h-full bg-[#FAFAFA] p-12 rounded-3xl group"
                         >
-                            <Quote className="w-10 h-10 text-primary/10 mb-10 group-hover:text-gold transition-colors duration-500" />
+                            <Quote className="w-10 h-10 text-primary/10 mb-10 group-hover:text-accent transition-colors duration-500" />
 
-                            <p className="text-gray-600 text-lg font-medium italic leading-relaxed mb-12 flex-1">
+                            <p className="text-secondary text-lg font-light tracking-wide leading-relaxed mb-12 flex-1">
                                 "{t.content}"
                             </p>
 
-                            <div className="mt-auto flex items-center space-x-4 pt-8 border-t border-gray-100">
-                                <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+                            <div className="mt-auto flex items-center space-x-4 pt-8 border-t border-primary/5">
+                                <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
                                 <div className="flex flex-col">
-                                    <h4 className="font-bold text-primary leading-none text-sm mb-1 uppercase tracking-tight">{t.name}</h4>
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-gray-300">{t.role}</span>
+                                    <h4 className="font-heading font-semibold text-primary text-base mb-1 tracking-wide">{t.name}</h4>
+                                    <span className="text-[9px] font-medium uppercase tracking-[0.2em] text-secondary/60">{t.role}</span>
                                 </div>
                             </div>
                         </motion.div>
