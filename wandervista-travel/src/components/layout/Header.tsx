@@ -21,6 +21,15 @@ const Header = () => {
     setMobileMenuOpen(false)
   }, [location])
 
+  // Scroll Lock for Mobile Menu
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+  }, [mobileMenuOpen])
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Stays', path: '/destinations' },
@@ -33,7 +42,7 @@ const Header = () => {
   const headerVariants = {
     initial: { backgroundColor: 'rgba(255, 255, 255, 0)', boxShadow: 'none', borderBottom: '1px solid transparent' },
     scrolled: {
-      backgroundColor: 'rgba(250, 250, 250, 0.85)',
+      backgroundColor: 'rgba(250, 250, 250, 0.95)',
       backdropFilter: 'blur(24px)',
       boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)',
       borderBottom: '1px solid rgba(26, 26, 29, 0.05)',
@@ -99,7 +108,7 @@ const Header = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`lg:hidden p-2 transition-colors ${activeHeader ? 'text-primary' : 'text-white'}`}
+          className={`lg:hidden p-2 transition-colors relative z-[130] ${activeHeader || mobileMenuOpen ? 'text-primary' : 'text-white'}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -110,20 +119,18 @@ const Header = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-white z-[110] lg:hidden flex flex-col p-10 pt-32"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-[#FAFAFA] z-[120] lg:hidden flex flex-col p-8 pt-32 h-screen w-screen overflow-y-auto"
           >
-            <button className="absolute top-8 right-8 p-2" onClick={() => setMobileMenuOpen(false)}>
-              <X className="w-8 h-8 text-primary" />
-            </button>
             <div className="flex flex-col space-y-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="text-3xl font-bold text-primary hover:text-accent transition-colors"
+                  className="text-4xl font-heading font-medium text-primary hover:text-accent transition-colors py-2 border-b border-primary/5"
                 >
                   {link.name}
                 </Link>

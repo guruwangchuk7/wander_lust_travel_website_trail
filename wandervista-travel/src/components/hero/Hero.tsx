@@ -31,7 +31,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-white text-5xl md:text-7xl lg:text-8xl font-heading mb-6 leading-[1.1] font-medium"
+          className="text-white text-4xl md:text-7xl lg:text-8xl font-heading mb-6 leading-[1.1] font-medium"
         >
           Experience the <br className="hidden md:block" /> Unforgettable
         </motion.h1>
@@ -53,7 +53,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           onSubmit={handleSearch}
-          className="max-w-5xl mx-auto glass-panel p-3 lg:p-4 flex flex-col lg:flex-row items-stretch gap-2"
+          className="max-w-5xl mx-auto glass-panel p-4 md:p-6 lg:p-4 flex flex-col lg:flex-row items-stretch gap-3 lg:gap-2"
         >
           {/* Location Field */}
           <div className="flex-1 flex flex-col px-6 py-4 bg-white/40 hover:bg-white/60 transition-colors rounded-2xl cursor-text">
@@ -95,7 +95,7 @@ const Hero = () => {
           </div>
 
           {/* Search CTA */}
-          <button className="btn-primary !rounded-2xl lg:!px-12 !text-sm lg:!w-auto w-full shadow-lg hover:shadow-xl mt-2 lg:mt-0 flex-shrink-0">
+          <button className="btn-primary !rounded-2xl lg:!px-12 !py-5 md:!py-4 !text-sm lg:!w-auto w-full shadow-lg hover:shadow-xl mt-2 lg:mt-0 flex-shrink-0">
             <Search className="w-4 h-4 mr-2" />
             Search
           </button>

@@ -85,3 +85,51 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #A38A5C;
 }
+
+/* Global Responsive Adjustments */
+@layer base {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  /* Fluid Typography for large headings */
+  .fluid-h1 {
+    @apply text-4xl md:text-7xl lg:text-9xl font-heading leading-tight md:leading-none tracking-tight;
+  }
+}
+
+/* Specific overrides for mobile/tablet visibility and layout */
+@media (max-width: 1024px) {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .glass-panel {
+    @apply rounded-2xl p-6;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent large containers from feeling too tight */
+  .container-padding {
+    @apply px-4 sm:px-6;
+  }
+
+  /* Improve touch accessibility */
+  button, a {
+    @apply min-h-[44px];
+  }
+
+  /* Scale down large paddings */
+  .p-10, .p-16 {
+    @apply p-6 md:p-10;
+  }
+  
+  .rounded-\[3rem\] {
+    @apply rounded-[2rem];
+  }
+}

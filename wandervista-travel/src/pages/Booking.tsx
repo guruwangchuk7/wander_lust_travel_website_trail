@@ -32,7 +32,7 @@ const Booking = () => {
             <div className="pt-32 pb-32 bg-bg-light min-h-screen border-t border-primary/5">
                 <div className="max-w-6xl mx-auto px-6">
                     {/* Superior Progress Bar */}
-                    <div className="flex items-center justify-between mb-24 max-w-3xl mx-auto relative px-10">
+                    <div className="flex items-center justify-between mb-16 md:mb-24 max-w-3xl mx-auto relative px-4 md:px-10">
                         <div className="absolute top-1/2 left-0 w-full h-[2px] bg-primary/5 -translate-y-1/2 -z-10 rounded-full" />
                         <div
                             className="absolute top-1/2 left-0 h-[2px] bg-primary transition-all duration-700 -translate-y-1/2 -z-10 rounded-full"
@@ -48,7 +48,7 @@ const Booking = () => {
                                         color: step >= s.id ? "var(--color-white)" : "var(--color-secondary)",
                                         borderColor: step === s.id ? "var(--color-accent)" : step > s.id ? "transparent" : "var(--color-primary)/5"
                                     }}
-                                    className={`w-14 h-14 rounded-full flex items-center justify-center transition-all z-10 border-2 shadow-minimal group-hover:shadow-premium`}
+                                    className={`w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all z-10 border-2 shadow-minimal group-hover:shadow-premium`}
                                 >
                                     {step > s.id ? <CheckCircle2 className="w-6 h-6" /> : <s.icon className="w-5 h-5" />}
                                 </motion.div>
@@ -73,7 +73,7 @@ const Booking = () => {
                                             exit={{ opacity: 0, x: 20 }}
                                             className="flex-1"
                                         >
-                                            <h2 className="text-4xl md:text-6xl font-heading font-medium text-primary mb-12 tracking-tight leading-none">Primary <span className="text-accent italic font-normal">Travelers</span></h2>
+                                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-medium text-primary mb-12 tracking-tight leading-none">Primary <span className="text-accent italic font-normal">Travelers</span></h2>
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                                 <div className="flex flex-col space-y-3">
                                                     <label className="text-[10px] font-medium text-secondary uppercase tracking-[0.2em] pl-4">First Designation</label>
@@ -99,7 +99,7 @@ const Booking = () => {
                                             exit={{ opacity: 0, scale: 1.05 }}
                                             className="flex-1"
                                         >
-                                            <h2 className="text-4xl md:text-6xl font-heading font-medium text-primary mb-12 tracking-tight leading-none">Refine Your <br /> <span className="text-accent italic font-normal">Experience</span></h2>
+                                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-medium text-primary mb-12 tracking-tight leading-none">Refine Your <br className="hidden md:block" /> <span className="text-accent italic font-normal">Experience</span></h2>
                                             <div className="space-y-6">
                                                 {[
                                                     { title: 'Spiritual Concierge', price: '$150', desc: 'Private sessions with local Rinpoches.', icon: '🧘' },
@@ -133,7 +133,7 @@ const Booking = () => {
                                             animate={{ opacity: 1, y: 0 }}
                                             className="flex-1"
                                         >
-                                            <h2 className="text-4xl md:text-6xl font-heading font-medium text-primary mb-12 tracking-tight leading-none">Liquidation <br /> <span className="text-accent italic font-normal">Protocol</span></h2>
+                                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-medium text-primary mb-12 tracking-tight leading-none">Liquidation <br className="hidden md:block" /> <span className="text-accent italic font-normal">Protocol</span></h2>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
                                                 <input type="text" className="md:col-span-2 bg-bg-alt border border-primary/5 rounded-2xl px-6 py-5 outline-none focus:ring-2 focus:ring-accent/20 transition-all font-light text-primary placeholder-secondary/50 tracking-widest text-lg" placeholder="Card Identity Number" />

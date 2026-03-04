@@ -19,7 +19,7 @@ const Home = () => {
         <section className="section-padding px-6 max-w-[1440px] mx-auto mt-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 px-2 gap-6">
             <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading text-primary tracking-tight font-medium">Trending Destinations</h2>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading text-primary tracking-tight font-medium">Trending Destinations</h2>
               <p className="text-secondary mt-6 font-light text-lg tracking-wide leading-relaxed">Curated collections of the most sought-after stays and exquisite locales across the Kingdom.</p>
             </div>
             <Link
@@ -50,7 +50,7 @@ const Home = () => {
         <section className="section-padding bg-bg-alt mt-12 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
-              <h2 className="text-3xl md:text-5xl text-primary mb-6 tracking-tight font-heading font-medium">The WanderVista Promise</h2>
+              <h2 className="text-3xl md:text-5xl text-primary mb-6 tracking-tight font-heading font-medium leading-tight">The WanderVista Promise</h2>
               <p className="text-secondary max-w-2xl mx-auto font-light text-lg tracking-wide leading-relaxed">Elevate your travel experience with our dedicated support, exclusive access, and uncompromising guarantees.</p>
             </div>
 
@@ -92,7 +92,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
 
           <div className="max-w-3xl mx-auto text-center relative z-10 glass-panel !bg-primary/40 !border-white/10 p-10 md:p-16 rounded-[2rem]">
-            <h2 className="text-4xl md:text-5xl font-heading font-medium mb-6">Join Our Insider Circle</h2>
+            <h2 className="text-3xl md:text-5xl font-heading font-medium mb-6">Join Our Insider Circle</h2>
             <p className="text-white/70 text-lg mb-10 font-light tracking-wide">Subscribe for exclusive travel guides, curated itineraries, and limited-time offers, sent straight to your inbox.</p>
 
             <form className="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">

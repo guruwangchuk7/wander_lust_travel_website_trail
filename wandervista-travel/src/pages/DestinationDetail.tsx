@@ -70,7 +70,7 @@ const DestinationDetail = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="text-6xl md:text-8xl lg:text-9xl text-white font-heading font-medium tracking-tight leading-none"
+                  className="text-5xl md:text-8xl lg:text-9xl text-white font-heading font-medium tracking-tight leading-tight md:leading-none"
                 >
                   {destination.name}
                 </motion.h1>
@@ -92,7 +92,7 @@ const DestinationDetail = () => {
           {/* Main Content Area (8 cols) */}
           <div className="lg:col-span-8">
             {/* Custom Tabs */}
-            <div className="flex space-x-8 md:space-x-12 border-b border-primary/5 mb-16 overflow-x-auto scrollbar-hide">
+            <div className="flex space-x-6 md:space-x-12 border-b border-primary/5 mb-10 md:mb-16 overflow-x-auto scrollbar-hide pb-2">
               {['overview', 'itinerary', 'amenities', 'reviews'].map(tab => (
                 <button
                   key={tab}
@@ -118,7 +118,7 @@ const DestinationDetail = () => {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h2 className="text-4xl lg:text-5xl font-heading font-medium text-primary mb-10 tracking-tight leading-tight">Authentic Bhutanese <br /> Journey <span className="text-accent italic font-normal">Overview</span></h2>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-medium text-primary mb-10 tracking-tight leading-tight">Authentic Bhutanese <br className="hidden md:block" /> Journey <span className="text-accent italic font-normal">Overview</span></h2>
                     <p className="text-secondary font-light text-lg leading-relaxed mb-16 tracking-wide">
                       {destination.description}
                     </p>
