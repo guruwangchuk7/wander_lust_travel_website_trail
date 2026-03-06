@@ -83,7 +83,7 @@ const Tours = () => {
 
         {/* Inclusion Section */}
         <section className="py-32 bg-primary px-6 rounded-t-[4rem] relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] opacity-10 bg-cover bg-center grayscale mix-blend-overlay" />
+          <div className="absolute inset-0 bg-[url('/paro-taksang.jpg')] opacity-10 bg-cover bg-center grayscale mix-blend-overlay" />
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-24">
               <span className="text-accent font-semibold tracking-[0.3em] uppercase text-[10px] mb-6 block">Our Standards</span>

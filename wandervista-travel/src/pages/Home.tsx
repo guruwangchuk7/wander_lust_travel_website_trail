@@ -88,7 +88,7 @@ const Home = () => {
 
         {/* Newsletter Integrated into Design */}
         <section className="py-32 px-6 bg-primary text-white mx-4 md:mx-12 lg:mx-24 mb-32 overflow-hidden relative rounded-3xl">
-          <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] opacity-20 bg-cover bg-center grayscale mix-blend-overlay" />
+          <div className="absolute inset-0 bg-[url('/paro-taksang.jpg')] opacity-20 bg-cover bg-center grayscale mix-blend-overlay" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
 
           <div className="max-w-3xl mx-auto text-center relative z-10 glass-panel !bg-primary/40 !border-white/10 p-10 md:p-16 rounded-[2rem]">

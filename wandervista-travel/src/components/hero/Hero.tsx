@@ -17,10 +17,9 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/hero-bg.jpg"
+          src="/paro-taksang.jpg"
           className="w-full h-full object-cover"
           alt="High-quality travel panorama"
-          onError={(e) => { e.currentTarget.src = "/paro-taksang.jpg" }} // Fallback
         />
         <div className="absolute inset-0 bg-black/40 z-10" />
       </div>
